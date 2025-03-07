@@ -1,0 +1,66 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.13.35825.156 d17.13
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{54A90642-561A-4BB1-A94E-469ADEE60C69}") = "ukparliament.codetest.client", "ukparliament.codetest.client\ukparliament.codetest.client.esproj", "{753C1A43-F57B-15E6-72AF-7E22DD7008BD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UKParliament.CodeTest.Server", "UKParliament.CodeTest.Server\UKParliament.CodeTest.Server.csproj", "{B22189B9-38A5-4968-A355-48EE5E27F216}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "UI", "UI", "{02EA681E-C7D8-13C7-8484-4AC65E1B71E8}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "API", "API", "{A7E7E9FD-0AF4-415B-8C32-47351A1DBC45}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UKParliament.CodeTest.Data", "UKParliament.CodeTest.Data\UKParliament.CodeTest.Data.csproj", "{C2AEADD7-268E-4DA0-A01D-21F0D1D28F8A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UKParliament.CodeTest.Services", "UKParliament.CodeTest.Services\UKParliament.CodeTest.Services.csproj", "{E31A5C38-E927-4012-AE23-12C9F93A6AA0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UKParliament.CodeTest.Tests", "UKParliament.CodeTest.Tests\UKParliament.CodeTest.Tests.csproj", "{BEC92EDD-DB5D-4386-9386-617C31E147A1}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{1B965533-984F-4793-A68A-6AA1D5D6D285}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Data", "Data", "{BB59ACA6-43A7-44D2-A80A-823A041AFF78}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{753C1A43-F57B-15E6-72AF-7E22DD7008BD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{753C1A43-F57B-15E6-72AF-7E22DD7008BD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{753C1A43-F57B-15E6-72AF-7E22DD7008BD}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{753C1A43-F57B-15E6-72AF-7E22DD7008BD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{753C1A43-F57B-15E6-72AF-7E22DD7008BD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{753C1A43-F57B-15E6-72AF-7E22DD7008BD}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{B22189B9-38A5-4968-A355-48EE5E27F216}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B22189B9-38A5-4968-A355-48EE5E27F216}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B22189B9-38A5-4968-A355-48EE5E27F216}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B22189B9-38A5-4968-A355-48EE5E27F216}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C2AEADD7-268E-4DA0-A01D-21F0D1D28F8A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C2AEADD7-268E-4DA0-A01D-21F0D1D28F8A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C2AEADD7-268E-4DA0-A01D-21F0D1D28F8A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C2AEADD7-268E-4DA0-A01D-21F0D1D28F8A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E31A5C38-E927-4012-AE23-12C9F93A6AA0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E31A5C38-E927-4012-AE23-12C9F93A6AA0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E31A5C38-E927-4012-AE23-12C9F93A6AA0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E31A5C38-E927-4012-AE23-12C9F93A6AA0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BEC92EDD-DB5D-4386-9386-617C31E147A1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BEC92EDD-DB5D-4386-9386-617C31E147A1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BEC92EDD-DB5D-4386-9386-617C31E147A1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BEC92EDD-DB5D-4386-9386-617C31E147A1}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{753C1A43-F57B-15E6-72AF-7E22DD7008BD} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
+		{B22189B9-38A5-4968-A355-48EE5E27F216} = {A7E7E9FD-0AF4-415B-8C32-47351A1DBC45}
+		{C2AEADD7-268E-4DA0-A01D-21F0D1D28F8A} = {BB59ACA6-43A7-44D2-A80A-823A041AFF78}
+		{E31A5C38-E927-4012-AE23-12C9F93A6AA0} = {BB59ACA6-43A7-44D2-A80A-823A041AFF78}
+		{BEC92EDD-DB5D-4386-9386-617C31E147A1} = {1B965533-984F-4793-A68A-6AA1D5D6D285}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {ABFBED7B-9517-4E47-B4D0-FE30FCCF4373}
+	EndGlobalSection
+EndGlobal
