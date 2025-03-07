@@ -1,47 +1,33 @@
-﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc;
 using UKParliament.CodeTest.Server.ViewModels;
-using UKParliament.CodeTest.Services;
 
-// For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+namespace UKParliament.CodeTest.Server.Controllers;
 
-namespace UKParliament.CodeTest.Server.Controllers
+[ApiController]
+[Route("api/[controller]")]
+public class PersonController : ControllerBase
 {
-    [Route("api/[controller]")]
-    [ApiController]
-    public class PersonController : ControllerBase
+    private static readonly string[] Summaries = new[]
     {
-        public PersonController(IPersonService personService) { }
+        "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
+    };
 
-        // GET: api/<PersonController>
-        [HttpGet]
-        public IEnumerable<string> Get()
-        {
-            return new string[] { "value1", "value2" };
-        }
+    private readonly ILogger<PersonController> _logger;
 
-        // GET api/<PersonController>/5
-        [HttpGet("{id}")]
-        public ActionResult<PersonViewModel> Get(int id)
-        {
-            return Ok(new PersonViewModel() { FirstName = "Eugene", LastName = "Murray" });
-        }
+    public PersonController(ILogger<PersonController> logger)
+    {
+        _logger = logger;
+    }
 
-        // POST api/<PersonController>
-        [HttpPost]
-        public void Post([FromBody]string value)
+    [HttpGet(Name = "GetWeatherForecast")]
+    public IEnumerable<WeatherForecast> Get()
+    {
+        return Enumerable.Range(1, 5).Select(index => new WeatherForecast
         {
-        }
-
-        // PUT api/<PersonController>/5
-        [HttpPut("{id}")]
-        public void Put(int id, [FromBody]string value)
-        {
-        }
-
-        // DELETE api/<PersonController>/5
-        [HttpDelete("{id}")]
-        public void Delete(int id)
-        {
-        }
+            Date = DateOnly.FromDateTime(DateTime.Now.AddDays(index)),
+            TemperatureC = Random.Shared.Next(-20, 55),
+            Summary = Summaries[Random.Shared.Next(Summaries.Length)]
+        })
+        .ToArray();
     }
 }

@@ -20,6 +20,17 @@ namespace UKParliament.CodeTest.Server
             builder.Services.AddDbContext<PersonManagerContext>(op => op.UseInMemoryDatabase("PersonManager"));
             builder.Services.AddScoped<IPersonService, PersonService>();
 
+            // Add CORS policy
+            builder.Services.AddCors(options =>
+            {
+                options.AddPolicy("AllowAll", builder =>
+                {
+                    builder.AllowAnyOrigin()
+                           .AllowAnyMethod()
+                           .AllowAnyHeader();
+                });
+            });
+
             var app = builder.Build();
 
             // Create database so the data seeds
@@ -47,6 +58,8 @@ namespace UKParliament.CodeTest.Server
             app.MapControllers();
 
             app.MapFallbackToFile("/index.html");
+
+            app.UseCors("AllowAll");
 
             app.Run();
         }

@@ -1,4 +1,4 @@
-namespace UKParliament.CodeTest.Server
+namespace UKParliament.CodeTest.Server.ViewModels
 {
     public class WeatherForecast
     {
