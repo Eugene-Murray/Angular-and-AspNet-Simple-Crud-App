@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using UKParliament.CodeTest.Server.ViewModels;
 using UKParliament.CodeTest.Services;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
@@ -20,9 +21,9 @@ namespace UKParliament.CodeTest.Server.Controllers
 
         // GET api/<PersonController>/5
         [HttpGet("{id}")]
-        public string Get(int id)
+        public ActionResult<PersonViewModel> Get(int id)
         {
-            return "value";
+            return Ok(new PersonViewModel() { FirstName = "Eugene", LastName = "Murray" });
         }
 
         // POST api/<PersonController>
