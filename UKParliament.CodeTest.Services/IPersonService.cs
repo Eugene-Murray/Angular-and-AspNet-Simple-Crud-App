@@ -9,7 +9,6 @@ namespace UKParliament.CodeTest.Services;
 
 public interface IPersonService
 {
-
     List<Person> Get();
     Person Get(int id);
     void Post(Person person);

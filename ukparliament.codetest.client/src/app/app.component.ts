@@ -1,19 +1,9 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { Person } from './models/models';
+import { PersonManagerService } from './services/person-manager.service';
 
-interface WeatherForecast {
-  date: string;
-  temperatureC: number;
-  temperatureF: number;
-  summary: string;
-}
 
-interface Person {
-  id: number;
-  firstName: string;
-  lastName: string;
-  departmentId: number;
-}
 
 @Component({
   selector: 'app-root',
@@ -24,8 +14,8 @@ interface Person {
 export class AppComponent implements OnInit {
 
   public people: Person[] = [];
-  public addEditPerson: Person = { id: 0, firstName: '', lastName: '', departmentId: 0 };
-  constructor(private http: HttpClient) {}
+  public addEditPerson: Person = { id: 0, firstName: '', lastName: '', dob: new Date(), departmentId: 0 };
+  constructor(private http: HttpClient, private service: PersonManagerService) { }
 
   ngOnInit() {
     this.getPeople();
@@ -46,7 +36,7 @@ export class AppComponent implements OnInit {
     this.http.post<Person>('https://localhost:7205/api/person', this.addEditPerson).subscribe(
       (result) => {
         this.people.push(result);
-        this.addEditPerson = { id: 0, firstName: '', lastName: '', departmentId: 0 };
+        this.addEditPerson = { id: 0, firstName: '', lastName: '', dob: new Date(), departmentId: 0 };
       },
       (error) => {
         console.error(error);
@@ -58,7 +48,7 @@ export class AppComponent implements OnInit {
     this.http.put<Person>(`https://localhost:7205/api/person/${this.addEditPerson.id}`, this.addEditPerson).subscribe(
       (result) => {
         this.people.push(result);
-        this.addEditPerson = { id: 0, firstName: '', lastName: '', departmentId: 0 };
+        this.addEditPerson = { id: 0, firstName: '', lastName: '', dob: new Date(), departmentId: 0 };
       },
       (error) => {
         console.error(error);
