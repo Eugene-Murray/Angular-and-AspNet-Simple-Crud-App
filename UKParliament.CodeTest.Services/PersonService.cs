@@ -29,11 +29,11 @@ public class PersonService : IPersonService
 
     public void Post(Person person)
     {
-        _personRepository.Post(person);
+        _personRepository.Create(person);
     }
 
     public void Put(int id, Person person)
     {
-        _personRepository.Post(person);
+        _personRepository.Edit(id, person);
     }
 }

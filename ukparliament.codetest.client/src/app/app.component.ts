@@ -56,7 +56,26 @@ export class AppComponent implements OnInit {
     );
   }
 
+  onDelete(id: number) {
+    this.http.delete(`https://localhost:7205/api/person/${id}`).subscribe(
+      (result) => {
+        const index = this.people.findIndex((p) => p.id === id);
+
+        console.warn(index);
+        this.people.slice(index);
+        this.addEditPerson = { id: 0, firstName: '', lastName: '', dob: new Date(), departmentId: 0 };
+      },
+      (error) => {
+        console.error(error);
+      }
+    );
+  }
+
   selectPerson(person: Person) {
     this.addEditPerson = person;
+  }
+
+  clearPerson() {
+    this.addEditPerson = { id: 0, firstName: '', lastName: '', dob: new Date(), departmentId: 0 };
   }
 }
