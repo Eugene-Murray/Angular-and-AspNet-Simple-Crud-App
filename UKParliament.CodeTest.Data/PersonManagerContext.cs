@@ -15,6 +15,14 @@ public class PersonManagerContext : DbContext
     {
         base.OnModelCreating(modelBuilder);
 
+
+        modelBuilder.Entity<Person>().HasData(
+            new Person { Id = 1, FirstName = "Stevie", LastName = "Wonder" },
+            new Person { Id = 2, FirstName = "Aretha", LastName = "Franklin" },
+            new Person { Id = 3, FirstName = "Ray", LastName = "Charles" },
+            new Person { Id = 4, FirstName = "James", LastName = "Brown" }
+        );
+
         modelBuilder.Entity<Department>().HasData(
             new Department { Id = 1, Name = "Sales" },
             new Department { Id = 2, Name = "Marketing" },

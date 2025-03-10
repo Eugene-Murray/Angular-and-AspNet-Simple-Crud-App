@@ -30,7 +30,7 @@ export class AppComponent implements OnInit {
   }
 
   getForecasts() {
-    this.http.get<WeatherForecast[]>('https://localhost:7205/api/person').subscribe(
+    this.http.get<WeatherForecast[]>('https://localhost:7205/api/weather').subscribe(
       (result) => {
         this.forecasts = result;
       },
@@ -40,7 +40,7 @@ export class AppComponent implements OnInit {
     );
 
     //https://localhost:7205/api/Person
-    this.http.get<string[]>('https://localhost:7205/api/values').subscribe(
+    this.http.get<string[]>('https://localhost:7205/api/person').subscribe(
       (result) => {
         console.warn(result);
         this.people = result;
