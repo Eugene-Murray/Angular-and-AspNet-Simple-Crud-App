@@ -40,6 +40,7 @@ namespace UKParliament.CodeTest.Server.Controllers
                 Id = person.Id, 
                 FirstName = person.FirstName, 
                 LastName = person.LastName,
+                DOB = person.DOB,
                 DepartmentId = person.DepartmentId
             });
         }
@@ -53,6 +54,7 @@ namespace UKParliament.CodeTest.Server.Controllers
                 _personService.Post(new Person() { 
                     FirstName = person.FirstName, 
                     LastName = person.LastName,
+                    DOB = person.DOB,
                     DepartmentId = person.DepartmentId
                 });
 
@@ -73,6 +75,7 @@ namespace UKParliament.CodeTest.Server.Controllers
                 _personService.Put(id, new Person() { 
                     FirstName = person.FirstName, 
                     LastName = person.LastName,
+                    DOB = person.DOB,
                     DepartmentId = person.DepartmentId
                 });
 

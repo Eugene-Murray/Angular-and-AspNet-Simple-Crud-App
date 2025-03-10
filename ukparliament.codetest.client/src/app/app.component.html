@@ -1,10 +1,13 @@
-<h1 id="tableLabel">People Manager</h1>
 
-<p *ngIf="!people"><em>Loading... Please refresh once the ASP.NET backend has started. See <a href="https://aka.ms/jspsintegrationangular">https://aka.ms/jspsintegrationangular</a> for more details.</em></p>
+<div class="header">
+  <h1 id="tableLabel">UK Parliament - People Manager</h1>
+</div>
+<div class="body">
+  <p *ngIf="!people"><em>Loading... Please refresh once the ASP.NET backend has started.</em></p>
 
-
-<div class="container">
-    <table *ngIf="people">
+  <div class="people-container">
+    <div class="table">
+      <table *ngIf="people">
         <thead>
           <tr>
             <th>Id</th>
@@ -23,22 +26,34 @@
             <td>{{ person.departmentId }}</td>
           </tr>
         </tbody>
-    </table>
-    
-    
-    <div class="form-group">
-        <label for="firstName">Id: {{ addEditPerson.id }}</label>
-        <label for="firstName">First Name:</label>
-        <input id="firstName" name="firstName" [(ngModel)]="addEditPerson.firstName" /> 
-        <label for="firstName">Last Name:</label>
-        <input id="firstName" name="lastName" [(ngModel)]="addEditPerson.lastName" /> 
-        <label for="firstName">Department Id:</label>
-        <input id="firstName" name="departmentId" [(ngModel)]="addEditPerson.departmentId" /> 
-        <button (click)="addPerson()">Add Person</button> 
-        <button (click)="editPerson()">Edit Person</button>
+      </table>
     </div>
-    
-    
-</div>
+
+    <div class="form-group">
+      <label for="firstName">Id: {{ addEditPerson.id }}</label>
+      <label for="firstName">First Name:</label>
+      <input id="firstName" name="firstName" [(ngModel)]="addEditPerson.firstName" />
+      <label for="firstName">Last Name:</label>
+      <input id="firstName" name="lastName" [(ngModel)]="addEditPerson.lastName" />
+      <label for="firstName">Department Id:</label>
+      <input id="firstName" name="departmentId" [(ngModel)]="addEditPerson.departmentId" />
+      <button (click)="addPerson()">Add Person</button>
+      <button (click)="editPerson()">Edit Person</button>
+    </div>
+
+
+    <div class="flex-container">
+      <div class="flex-item">Item 1</div>
+      <div class="flex-item">Item 2</div>
+      <div class="flex-item">Item 3</div>
+    </div>
+
+
+
+  </div>
+  </div>
+
+
+
 
 

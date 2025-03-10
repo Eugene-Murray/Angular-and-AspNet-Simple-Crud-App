@@ -24,10 +24,7 @@ namespace UKParliament.CodeTest.Data
             return _db.People.ToList();
         }
 
-        public Person Get(int id)
-        {
-            return _db.People.Find(id);
-        }
+        public Person Get(int id) => _db.People.Find(id);
 
         public void Post(Person person)
         {
@@ -43,6 +40,8 @@ namespace UKParliament.CodeTest.Data
             {
                 person.FirstName = personUpdate.FirstName;
                 person.LastName = personUpdate.LastName;
+                person.DOB = personUpdate.DOB;
+                person.DepartmentId = personUpdate.DepartmentId;
 
                 _db.SaveChanges();
             }
