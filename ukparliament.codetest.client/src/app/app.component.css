@@ -12,3 +12,26 @@ th, td {
 table {
     margin: 0 auto;
 }
+
+button {
+    margin-top: 1rem;
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+.container  {
+    display: flex; 
+    width: 500px;
+    margin: 0 auto;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    margin-right: 1rem;
+}
+
+.row-selected {
+    background-color: #f0f0f0;
+}

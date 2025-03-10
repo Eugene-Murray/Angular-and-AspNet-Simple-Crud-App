@@ -32,6 +32,7 @@ namespace UKParliament.CodeTest.Data
         public void Post(Person person)
         {
             _db.People.Add(person);
+            _db.SaveChanges();
         }
 
         public void Put(int id, Person personUpdate)

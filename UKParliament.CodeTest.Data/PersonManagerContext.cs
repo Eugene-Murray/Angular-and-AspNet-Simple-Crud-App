@@ -17,10 +17,10 @@ public class PersonManagerContext : DbContext
 
 
         modelBuilder.Entity<Person>().HasData(
-            new Person { Id = 1, FirstName = "Stevie", LastName = "Wonder" },
-            new Person { Id = 2, FirstName = "Aretha", LastName = "Franklin" },
-            new Person { Id = 3, FirstName = "Ray", LastName = "Charles" },
-            new Person { Id = 4, FirstName = "James", LastName = "Brown" }
+            new Person { Id = 1, FirstName = "Stevie", LastName = "Wonder", DepartmentId = 1 },
+            new Person { Id = 2, FirstName = "Aretha", LastName = "Franklin", DepartmentId = 2 },
+            new Person { Id = 3, FirstName = "Ray", LastName = "Charles", DepartmentId = 3 },
+            new Person { Id = 4, FirstName = "James", LastName = "Brown", DepartmentId = 4 }
         );
 
         modelBuilder.Entity<Department>().HasData(

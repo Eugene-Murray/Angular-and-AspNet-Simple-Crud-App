@@ -8,9 +8,11 @@ interface WeatherForecast {
   summary: string;
 }
 
-interface People {
+interface Person {
+  id: number;
   firstName: string;
-  secondName: string;
+  lastName: string;
+  departmentId: number;
 }
 
 @Component({
@@ -20,29 +22,18 @@ interface People {
   styleUrl: './app.component.css'
 })
 export class AppComponent implements OnInit {
-  public forecasts: WeatherForecast[] = [];
-  public people: string[] = [];
 
+  public people: Person[] = [];
+  public addEditPerson: Person = { id: 0, firstName: '', lastName: '', departmentId: 0 };
   constructor(private http: HttpClient) {}
 
   ngOnInit() {
-    this.getForecasts();
+    this.getPeople();
   }
 
-  getForecasts() {
-    this.http.get<WeatherForecast[]>('https://localhost:7205/api/weather').subscribe(
+  getPeople() {
+    this.http.get<Person[]>('https://localhost:7205/api/person').subscribe(
       (result) => {
-        this.forecasts = result;
-      },
-      (error) => {
-        console.error(error);
-      }
-    );
-
-    //https://localhost:7205/api/Person
-    this.http.get<string[]>('https://localhost:7205/api/person').subscribe(
-      (result) => {
-        console.warn(result);
         this.people = result;
       },
       (error) => {
@@ -51,5 +42,31 @@ export class AppComponent implements OnInit {
     );
   }
 
-  title = 'ukparliament.codetest.client';
+  addPerson() {
+    this.http.post<Person>('https://localhost:7205/api/person', this.addEditPerson).subscribe(
+      (result) => {
+        this.people.push(result);
+        this.addEditPerson = { id: 0, firstName: '', lastName: '', departmentId: 0 };
+      },
+      (error) => {
+        console.error(error);
+      }
+    );
+  }
+
+  editPerson() {
+    this.http.put<Person>(`https://localhost:7205/api/person/${this.addEditPerson.id}`, this.addEditPerson).subscribe(
+      (result) => {
+        this.people.push(result);
+        this.addEditPerson = { id: 0, firstName: '', lastName: '', departmentId: 0 };
+      },
+      (error) => {
+        console.error(error);
+      }
+    );
+  }
+
+  selectPerson(person: Person) {
+    this.addEditPerson = person;
+  }
 }

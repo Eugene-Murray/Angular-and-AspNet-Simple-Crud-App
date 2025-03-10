@@ -21,13 +21,13 @@ namespace UKParliament.CodeTest.Server.Controllers
         [HttpGet]
         public List<PersonViewModel> Get()
         {
-            //return new List<PersonViewModel> {
-            //    new PersonViewModel() { FirstName = "Eugene", LastName = "Murray" },
-            //    new PersonViewModel() { FirstName = "Bob", LastName = "Dylan" }
-            //};
-
             var people = _personService.Get();
-            return people.Select(p => new PersonViewModel() { FirstName = p.FirstName, LastName = p.LastName }).ToList();
+            return people.Select(p => new PersonViewModel() { 
+                Id = p.Id, 
+                FirstName = p.FirstName, 
+                LastName = p.LastName, 
+                DepartmentId = p.DepartmentId 
+            }).ToList();
         }
 
         // GET api/<PersonController>/5
@@ -36,28 +36,68 @@ namespace UKParliament.CodeTest.Server.Controllers
         {
             var person = _personService.Get(id);
 
-            return Ok(new PersonViewModel() { FirstName = person.FirstName, LastName = person.LastName });
+            return Ok(new PersonViewModel() { 
+                Id = person.Id, 
+                FirstName = person.FirstName, 
+                LastName = person.LastName,
+                DepartmentId = person.DepartmentId
+            });
         }
 
         // POST api/<PersonController>
         [HttpPost]
-        public void Post([FromBody]PersonViewModel person)
+        public IActionResult Post([FromBody]PersonViewModel person)
         {
-            _personService.Post(new Person() { FirstName = person.FirstName, LastName = person.LastName });
+            try
+            {
+                _personService.Post(new Person() { 
+                    FirstName = person.FirstName, 
+                    LastName = person.LastName,
+                    DepartmentId = person.DepartmentId
+                });
+
+                return CreatedAtAction(nameof(Get), new { id = person.Id }, person);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
         }
 
         // PUT api/<PersonController>/5
         [HttpPut("{id}")]
-        public void Put(int id, [FromBody]PersonViewModel person)
+        public IActionResult Put(int id, [FromBody]PersonViewModel person)
         {
-            _personService.Put(id, new Person() { FirstName = person.FirstName, LastName = person.LastName });
+            try
+            {
+                _personService.Put(id, new Person() { 
+                    FirstName = person.FirstName, 
+                    LastName = person.LastName,
+                    DepartmentId = person.DepartmentId
+                });
+
+                return CreatedAtAction(nameof(Get), new { id = person.Id }, person);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
         }
 
         // DELETE api/<PersonController>/5
         [HttpDelete("{id}")]
-        public void Delete(int id)
+        public IActionResult Delete(int id)
         {
-            _personService.Delete(id);
+            try
+            {
+                _personService.Delete(id);
+
+                return Ok();
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
         }
     }
 }
