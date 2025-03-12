@@ -38,16 +38,6 @@
   height: calc(100vh - 100px);
 }
 
-/*.button-group {
-    display: flex;
-    padding: 2px;
-    margin: 2px;
-}
-
-.dob {
-    display: flex;
-}*/
-
 .alert {
   margin-top: 20px;
   width: 90vw;

@@ -1,10 +1,7 @@
-import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Person, Department } from './models/models';
 import { DataService } from './services/data.service';
 import { map } from 'rxjs';
-
-
 
 @Component({
   selector: 'app-root',
@@ -18,16 +15,18 @@ export class AppComponent implements OnInit {
   addEditPerson: Person = { id: 0, firstName: '', lastName: '', dob: '', departmentId: 0 };
   successMessage = '';
   errorMessage = '';
-  constructor(private http: HttpClient, private dataService: DataService) { }
 
+  constructor(private dataService: DataService) { }
 
   ngOnInit() {
     this.getDepartments()
-    this.getPeople();
   }
 
   getDepartments() {
-    this.dataService.getDepartments().subscribe(result => this.departments = result);
+    this.dataService.getDepartments().subscribe(result => {
+      this.departments = result;
+      this.getPeople();
+    });
   }
 
   getPeople() {
@@ -46,10 +45,9 @@ export class AppComponent implements OnInit {
     this.clearMessages();
     this.dataService.createPerson(newPerson).subscribe(
       (result) => {
-        console.warn('fdsffdsfdsf:', result);
         result.departmentName = this.getDepartmentName(result.departmentId);
         this.people.push(result);
-        console.warn('people:', this.people);
+        console.warn('people add:', this.people);
         this.addEditPerson = { id: 0, firstName: '', lastName: '', dob: '', departmentId: 0 };
         this.successMessage = 'New User Added';
       },
@@ -65,8 +63,6 @@ export class AppComponent implements OnInit {
     this.clearMessages();
     this.dataService.updatePerson(updatePerson).subscribe(
       (result) => {
-        this.addEditPerson = { id: 0, firstName: '', lastName: '', dob: '', departmentId: 0 };
-        //this.people.push(result);
         this.successMessage = 'User Updated';
       },
       (error) => {

@@ -8,11 +8,10 @@ import { Person, Department } from '../models/models';
   providedIn: 'root'
 })
 export class DataService {
-  private apiUrl = 'https://localhost:7205/api'; // Replace with your API URL
+  private apiUrl = 'https://localhost:7205/api'; 
 
   constructor(private http: HttpClient) { }
 
-  // CREATE
   createPerson(person: Person): Observable<Person> {
     return this.http.post<Person>(`${this.apiUrl}/person`, person);
   }
@@ -21,7 +20,6 @@ export class DataService {
     return this.http.get<Department[]>(`${this.apiUrl}/department`);
   }
 
-  // READ
   getPersons(): Observable<Person[]> {
     return this.http.get<Person[]>(`${this.apiUrl}/person`);
   }
@@ -30,12 +28,10 @@ export class DataService {
     return this.http.get<Person>(`${this.apiUrl}/${id}`);
   }
 
-  // UPDATE
   updatePerson(person: Person): Observable<Person> {
     return this.http.put<Person>(`${this.apiUrl}/person/${person.id}`, person);
   }
 
-  // DELETE
   deletePerson(id: number): Observable<void> {
     return this.http.delete<void>(`${this.apiUrl}/person/${id}`);
   }

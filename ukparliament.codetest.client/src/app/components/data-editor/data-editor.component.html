@@ -3,11 +3,9 @@
     <div class="col-sm-6">
       <label for="firstName" class="form-label">First name*:</label>
       <input type="text" class="form-control" id="firstName" placeholder="" value="" [(ngModel)]="addEditPerson.firstName" name="firstName" required>
-
       <div *ngIf="form.submitted && !form.controls['firstName']?.valid">
         <span class="badge text-bg-danger">First name required</span>
       </div>
-
     </div>
     <div class="col-sm-6">
     <label for="lastName" class="form-label">Last name*:</label>
