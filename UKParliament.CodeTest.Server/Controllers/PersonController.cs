@@ -52,14 +52,14 @@ namespace UKParliament.CodeTest.Server.Controllers
         {
             try
             {
-                _personService.Post(new Person() { 
+                var newPerson = _personService.Post(new Person() { 
                     FirstName = person.FirstName, 
                     LastName = person.LastName,
                     DOB = person.DOB,
                     DepartmentId = person.DepartmentId
                 });
 
-                return CreatedAtAction(nameof(Get), new { id = person.Id }, person);
+                return CreatedAtAction(nameof(Get), new { id = newPerson.Id }, newPerson);
             }
             catch (Exception ex)
             {
@@ -80,7 +80,7 @@ namespace UKParliament.CodeTest.Server.Controllers
                     DepartmentId = person.DepartmentId
                 });
 
-                return CreatedAtAction(nameof(Get), new { id = person.Id }, person);
+                return Ok();
             }
             catch (Exception ex)
             {

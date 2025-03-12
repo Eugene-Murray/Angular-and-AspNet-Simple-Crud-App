@@ -27,9 +27,9 @@ public class PersonService : IPersonService
         return _personRepository.Get(id);
     }
 
-    public void Post(Person person)
+    public Person Post(Person person)
     {
-        _personRepository.Create(person);
+        return _personRepository.Create(person);
     }
 
     public void Put(int id, Person person)

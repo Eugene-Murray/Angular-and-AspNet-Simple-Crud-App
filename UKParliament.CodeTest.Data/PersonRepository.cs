@@ -27,10 +27,12 @@ namespace UKParliament.CodeTest.Data
 
         public Person Get(int id) => _db.People.Find(id);
 
-        public void Create(Person person)
+        public Person Create(Person person)
         {
-            _db.People.Add(person);
+            var newPerson = _db.People.Add(person);
             _db.SaveChanges();
+
+            return newPerson.Entity;
         }
 
         public void Edit(int id, Person personUpdate)

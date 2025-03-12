@@ -10,7 +10,7 @@ namespace UKParliament.CodeTest.Data
     {
         List<Person> Get();
         Person Get(int id);
-        void Create(Person person);
+        Person Create(Person person);
         void Edit(int id, Person person);
         void Delete(int id);
     }

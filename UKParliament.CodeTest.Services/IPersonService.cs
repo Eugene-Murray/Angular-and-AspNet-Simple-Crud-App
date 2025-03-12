@@ -11,7 +11,7 @@ public interface IPersonService
 {
     List<Person> Get();
     Person Get(int id);
-    void Post(Person person);
+    Person Post(Person person);
     void Put(int id, Person person);
     void Delete(int id);
 }
