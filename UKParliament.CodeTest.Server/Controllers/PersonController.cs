@@ -26,7 +26,8 @@ namespace UKParliament.CodeTest.Server.Controllers
                 Id = p.Id, 
                 FirstName = p.FirstName, 
                 LastName = p.LastName, 
-                DepartmentId = p.DepartmentId 
+                DepartmentId = p.DepartmentId,
+                DOB = p.DOB,
             }).ToList();
         }
 

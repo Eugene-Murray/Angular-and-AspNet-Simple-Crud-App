@@ -13,7 +13,8 @@ public class Person
     [Required]
     public string LastName { get; set; }
 
-    public DateTime DOB { get; set; }
+    //public DateTime DOB { get; set; }
+    public string DOB { get; set; }
 
     [Required]
     public int DepartmentId { get; set; }

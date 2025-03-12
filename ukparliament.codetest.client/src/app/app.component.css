@@ -65,6 +65,10 @@ button {
     margin: 2px;
 }
 
+.dob {
+    display: flex;
+}
+
 
 
 

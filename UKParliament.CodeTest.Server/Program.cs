@@ -20,6 +20,8 @@ namespace UKParliament.CodeTest.Server
             builder.Services.AddDbContext<PersonManagerContext>(op => op.UseInMemoryDatabase("PersonManager"));
             builder.Services.AddScoped<IPersonRepository, PersonRepository>();
             builder.Services.AddScoped<IPersonService, PersonService>();
+            builder.Services.AddScoped<IDepartmentRepository, DepartmentRepository>();
+            builder.Services.AddScoped<IDepartmentService, DepartmentService>();
 
             // Add CORS policy
             builder.Services.AddCors(options =>
