@@ -3,15 +3,16 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using UKParliament.CodeTest.Data;
+using UKParliament.CodeTest.Data.Entities;
+using UKParliament.CodeTest.Data.ViewModels;
 
 namespace UKParliament.CodeTest.Services;
 
 public interface IPersonService
 {
-    List<Person> Get();
-    Person Get(int id);
-    Person Add(Person person);
-    void Edit(int id, Person person);
+    List<PersonViewModel> Get();
+    PersonViewModel Get(int id);
+    PersonViewModel Add(PersonViewModel person);
+    void Edit(int id, PersonViewModel person);
     void Delete(int id);
 }

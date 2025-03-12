@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace UKParliament.CodeTest.Data;
+namespace UKParliament.CodeTest.Data.Entities;
 
 public class Department
 {

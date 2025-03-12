@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using UKParliament.CodeTest.Data;
+using UKParliament.CodeTest.Data.Entities;
+using UKParliament.CodeTest.Data.Repositories;
 
 namespace UKParliament.CodeTest.Services
 {

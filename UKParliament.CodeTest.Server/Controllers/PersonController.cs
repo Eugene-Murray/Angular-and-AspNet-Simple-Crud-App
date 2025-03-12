@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using UKParliament.CodeTest.Data;
-using UKParliament.CodeTest.Server.ViewModels;
+using UKParliament.CodeTest.Data.ViewModels;
 using UKParliament.CodeTest.Services;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
@@ -19,16 +19,9 @@ namespace UKParliament.CodeTest.Server.Controllers
 
         // GET: api/<PersonController>
         [HttpGet]
-        public List<PersonViewModel> Get()
+        public ActionResult<List<PersonViewModel>> Get()
         {
-            var people = _personService.Get();
-            return people.Select(p => new PersonViewModel() { 
-                Id = p.Id, 
-                FirstName = p.FirstName, 
-                LastName = p.LastName, 
-                DepartmentId = p.DepartmentId,
-                DOB = p.DOB,
-            }).ToList();
+            return Ok(_personService.Get());
         }
 
         // GET api/<PersonController>/5
@@ -42,13 +35,7 @@ namespace UKParliament.CodeTest.Server.Controllers
                 return NotFound();
             }
 
-            return Ok(new PersonViewModel() { 
-                Id = person.Id, 
-                FirstName = person.FirstName, 
-                LastName = person.LastName,
-                DOB = person.DOB,
-                DepartmentId = person.DepartmentId
-            });
+            return Ok(person);
         }
 
         // POST api/<PersonController>
@@ -62,12 +49,7 @@ namespace UKParliament.CodeTest.Server.Controllers
                     return BadRequest(ModelState);
                 }
 
-                var newPerson = _personService.Add(new Person() { 
-                    FirstName = person.FirstName, 
-                    LastName = person.LastName,
-                    DOB = person.DOB,
-                    DepartmentId = person.DepartmentId
-                });
+                var newPerson = _personService.Add(person);
 
                 return CreatedAtAction(nameof(Get), new { id = newPerson.Id }, newPerson);
             }
@@ -88,18 +70,13 @@ namespace UKParliament.CodeTest.Server.Controllers
                     return BadRequest(ModelState);
                 }
 
-                _personService.Edit(id, new Person() { 
-                    FirstName = person.FirstName, 
-                    LastName = person.LastName,
-                    DOB = person.DOB,
-                    DepartmentId = person.DepartmentId
-                });
+                _personService.Edit(id, person);
 
                 return Ok();
             }
             catch (Exception ex)
             {
-                return BadRequest(ex.Message);
+                return BadRequest(ex.Message); // TODO: Log exception / do not return to UI...
             }
         }
 
@@ -115,7 +92,7 @@ namespace UKParliament.CodeTest.Server.Controllers
             }
             catch (Exception ex)
             {
-                return BadRequest(ex.Message);
+                return NotFound("Person not found"); 
             }
         }
     }

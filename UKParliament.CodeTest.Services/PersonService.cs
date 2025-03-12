@@ -1,15 +1,20 @@
 ﻿using System;
-using UKParliament.CodeTest.Data;
+using UKParliament.CodeTest.Data.Entities;
+using UKParliament.CodeTest.Data.Repositories;
+using UKParliament.CodeTest.Data.ViewModels;
+using UKParliament.CodeTest.Services.Mappers;
 
 namespace UKParliament.CodeTest.Services;
 
 public class PersonService : IPersonService
 {
     private IPersonRepository _personRepository;
+    private IPersonMapper _mapper;
 
-    public PersonService(IPersonRepository personRepository)
+    public PersonService(IPersonRepository personRepository, IPersonMapper mapper)
     {
         _personRepository = personRepository;
+        _mapper = mapper;
     }
 
     public void Delete(int id)
@@ -17,23 +22,31 @@ public class PersonService : IPersonService
         _personRepository.Delete(id);
     }
 
-    public List<Person> Get()
+    public List<PersonViewModel> Get()
     {
-        return _personRepository.Get();
+        var personList = _personRepository.Get();
+        return _mapper.Map(personList);
     }
 
-    public Person Get(int id)
+    public PersonViewModel Get(int id)
     {
-        return _personRepository.Get(id);
+        var person = _personRepository.Get(id);
+        if (person != null)
+        {
+            return _mapper.Map(person);
+        }
+        return null;
     }
 
-    public Person Add(Person person)
+    public PersonViewModel Add(PersonViewModel person)
     {
-        return _personRepository.Create(person);
+        var newPerson = _personRepository.Create(_mapper.Map(person));
+
+        return _mapper.Map(newPerson);
     }
 
-    public void Edit(int id, Person person)
+    public void Edit(int id, PersonViewModel person)
     {
-        _personRepository.Edit(id, person);
+        _personRepository.Edit(id, _mapper.Map(person));
     }
 }
