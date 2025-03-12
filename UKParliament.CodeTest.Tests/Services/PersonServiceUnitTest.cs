@@ -17,7 +17,11 @@ namespace UKParliament.CodeTest.Tests.Services
         }
         public Person Get(int id)
         {
-            throw new System.NotImplementedException();
+            if (id == 1)
+            {
+                return new Person { Id = 1, FirstName = "Test Name" };
+            }
+            return null;
         }
         public List<Person> Get()
         {
@@ -45,6 +49,36 @@ namespace UKParliament.CodeTest.Tests.Services
 
             // Assert
             Assert.Equal(result?.Count, 5);
+        }
+
+        [Fact]
+        public void Should_Get_Person()
+        {
+            // Arrange
+            var service = new PersonService(new MockPersonRepository(), new PersonMapper());
+            var id = 1;
+
+            // Act
+            var result = service.Get(id);
+
+            // Assert
+            Assert.Equal(1, result?.Id);
+            Assert.Equal("Test Name", result?.FirstName);
+        }
+
+
+        [Fact]
+        public void Should_Not_Get_Person()
+        {
+            // Arrange
+            var service = new PersonService(new MockPersonRepository(), new PersonMapper());
+            var id = 2;
+
+            // Act
+            var result = service.Get(id);
+
+            // Assert
+            Assert.Equal(null, result);
         }
     }
 }
