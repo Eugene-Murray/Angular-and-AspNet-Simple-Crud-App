@@ -10,7 +10,7 @@ namespace UKParliament.CodeTest.Tests.Services
     public class DepartmentMapperUnitTest
     {
         [Fact]
-        public void Should_Map_Person_To_PersonViewModel()
+        public void Should_Map_Department_To_DepartmentViewModel()
         {
             // Arrange
             var mapper = new DepartmentMapper();
