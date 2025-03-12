@@ -37,7 +37,7 @@ namespace UKParliament.CodeTest.Data
 
         public void Edit(int id, Person personUpdate)
         {
-            var person = _db.People.FirstOrDefault(p => p.Id == 1);
+            var person = _db.People.FirstOrDefault(p => p.Id == id);
 
             if (person != null)
             {

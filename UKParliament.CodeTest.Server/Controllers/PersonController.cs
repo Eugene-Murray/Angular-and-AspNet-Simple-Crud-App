@@ -52,7 +52,7 @@ namespace UKParliament.CodeTest.Server.Controllers
         {
             try
             {
-                var newPerson = _personService.Post(new Person() { 
+                var newPerson = _personService.Add(new Person() { 
                     FirstName = person.FirstName, 
                     LastName = person.LastName,
                     DOB = person.DOB,
@@ -73,7 +73,7 @@ namespace UKParliament.CodeTest.Server.Controllers
         {
             try
             {
-                _personService.Put(id, new Person() { 
+                _personService.Edit(id, new Person() { 
                     FirstName = person.FirstName, 
                     LastName = person.LastName,
                     DOB = person.DOB,

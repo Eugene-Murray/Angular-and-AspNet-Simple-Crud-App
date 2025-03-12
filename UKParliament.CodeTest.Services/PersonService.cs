@@ -27,12 +27,12 @@ public class PersonService : IPersonService
         return _personRepository.Get(id);
     }
 
-    public Person Post(Person person)
+    public Person Add(Person person)
     {
         return _personRepository.Create(person);
     }
 
-    public void Put(int id, Person person)
+    public void Edit(int id, Person person)
     {
         _personRepository.Edit(id, person);
     }

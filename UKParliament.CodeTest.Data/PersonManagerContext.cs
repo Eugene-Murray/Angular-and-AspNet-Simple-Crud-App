@@ -20,7 +20,11 @@ public class PersonManagerContext : DbContext
             new Person { Id = 1, FirstName = "Stevie", LastName = "Wonder", DOB = "1999-1-1", DepartmentId = 1 },
             new Person { Id = 2, FirstName = "Aretha", LastName = "Franklin", DOB = "2000-2-2", DepartmentId = 2 },
             new Person { Id = 3, FirstName = "Ray", LastName = "Charles", DOB = "2001-3-3", DepartmentId = 3 },
-            new Person { Id = 4, FirstName = "James", LastName = "Brown", DOB = "2003-4-4", DepartmentId = 4 }
+            new Person { Id = 4, FirstName = "James", LastName = "Brown", DOB = "2003-4-4", DepartmentId = 4 },
+            new Person { Id = 5, FirstName = "Bob", LastName = "Dylan", DOB = "1999-1-1", DepartmentId = 1 },
+            new Person { Id = 6, FirstName = "Frank", LastName = "Zappa", DOB = "2000-2-2", DepartmentId = 2 },
+            new Person { Id = 7, FirstName = "Jim", LastName = "Morrison", DOB = "2001-3-3", DepartmentId = 3 },
+            new Person { Id = 8, FirstName = "Frank", LastName = "Black", DOB = "2003-4-4", DepartmentId = 4 }
         );
 
         modelBuilder.Entity<Department>().HasData(

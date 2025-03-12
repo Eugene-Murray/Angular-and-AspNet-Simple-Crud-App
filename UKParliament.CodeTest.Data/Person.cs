@@ -14,6 +14,7 @@ public class Person
     public string LastName { get; set; }
 
     //public DateTime DOB { get; set; }
+    [Required]
     public string DOB { get; set; }
 
     [Required]

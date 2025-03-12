@@ -97,7 +97,7 @@ export class AppComponent implements OnInit {
     this.dataService.deletePerson(id).subscribe(
       (result) => {
         const index = this.people.findIndex((p) => p.id === id);
-        this.people.splice(index);
+        this.people.splice(index, 1);
         this.addEditPerson = { id: 0, firstName: '', lastName: '', dob: '', departmentId: 0 };
         this.editUserSuccess = true;
         this.successMessage = 'User Deleted';
