@@ -24,6 +24,10 @@ Show success messages for delete, edit and create new;
 Server Side Validation;
 ![image](https://github.com/user-attachments/assets/7512fec7-1687-44c8-a8cd-0a9338873ffe)
 
+Accessibility;
+![image](https://github.com/user-attachments/assets/2c175943-06a6-4edd-be2f-a1d6aa5ececf)
+
+
 
 # TODO:
 <ol>
