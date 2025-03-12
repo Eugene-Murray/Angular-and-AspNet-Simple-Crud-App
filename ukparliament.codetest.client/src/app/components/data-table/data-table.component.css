@@ -1,0 +1,12 @@
+th, td {
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+table {
+  margin: 0 auto;
+}
+
+.row-selected {
+  background-color: #f0f0f0;
+}

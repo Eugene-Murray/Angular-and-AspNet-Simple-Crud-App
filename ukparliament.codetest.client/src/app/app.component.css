@@ -1,23 +1,5 @@
 :host {
     max-width: 1280px;
-    
-    
-}
-
-th, td {
-    padding-left: 1rem;
-    padding-right: 1rem;
-}
-
-table {
-    margin: 0 auto;
-}
-
-button {
-    margin-top: 1rem;
-    padding: 0.5rem 1rem;
-    font-size: 1rem;
-    cursor: pointer;
 }
 
 .people-container  {
@@ -26,7 +8,6 @@ button {
     width: 90vw;
     margin: 0 auto;
     background-color: white;
-    
 }
 
 .data-table {
@@ -43,10 +24,6 @@ button {
   width: 45vw;
 }
 
-.row-selected {
-    background-color: #f0f0f0;
-}
-
 .header {
   font-size: 1.5rem;
   font-weight: bold;
@@ -61,7 +38,7 @@ button {
   height: calc(100vh - 100px);
 }
 
-.button-group {
+/*.button-group {
     display: flex;
     padding: 2px;
     margin: 2px;
@@ -69,6 +46,28 @@ button {
 
 .dob {
     display: flex;
+}*/
+
+.alert {
+  margin-top: 20px;
+  width: 90vw;
+  margin: 20px auto;
+}
+
+@media only screen and (max-width: 1024px) {
+  .people-container {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .data-table {
+    width: 80vw;
+  }
+
+  .form-group {
+    width: 80vw;
+    text-align: center;
+  }
 }
 
 

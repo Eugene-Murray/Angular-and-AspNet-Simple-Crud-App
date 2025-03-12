@@ -32,11 +32,11 @@ export class DataService {
 
   // UPDATE
   updatePerson(person: Person): Observable<Person> {
-    return this.http.put<Person>(`${this.apiUrl}/${person.id}`, person);
+    return this.http.put<Person>(`${this.apiUrl}/person/${person.id}`, person);
   }
 
   // DELETE
   deletePerson(id: number): Observable<void> {
-    return this.http.delete<void>(`${this.apiUrl}/${id}`);
+    return this.http.delete<void>(`${this.apiUrl}/person/${id}`);
   }
 }

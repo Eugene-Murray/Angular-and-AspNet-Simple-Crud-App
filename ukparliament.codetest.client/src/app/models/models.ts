@@ -4,6 +4,7 @@ export interface Person {
   lastName: string;
   dob: string;
   departmentId: number;
+  departmentName?: string;
 }
 
 export interface Department {
