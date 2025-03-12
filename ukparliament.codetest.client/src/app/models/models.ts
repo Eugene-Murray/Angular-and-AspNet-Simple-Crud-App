@@ -5,6 +5,7 @@ export interface Person {
   dob: string;
   departmentId: number;
   departmentName?: string;
+  isEdit?: boolean;
 }
 
 export interface Department {

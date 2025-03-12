@@ -26,10 +26,6 @@ export class AppComponent implements OnInit {
     this.getPeople();
   }
 
-  selectedPersonToEdit(person: Person) {
-    this.addEditPerson = person;
-  }
-
   getDepartments() {
     this.dataService.getDepartments().subscribe(result => this.departments = result);
   }
@@ -53,6 +49,7 @@ export class AppComponent implements OnInit {
         console.warn('fdsffdsfdsf:', result);
         result.departmentName = this.getDepartmentName(result.departmentId);
         this.people.push(result);
+        console.warn('people:', this.people);
         this.addEditPerson = { id: 0, firstName: '', lastName: '', dob: '', departmentId: 0 };
         this.successMessage = 'New User Added';
       },
@@ -97,7 +94,7 @@ export class AppComponent implements OnInit {
     );
   }
 
-  selectPerson(person: Person) {
+  selectedPersonToEdit(person: Person) {
     this.addEditPerson = person;
     this.clearMessages();
   }

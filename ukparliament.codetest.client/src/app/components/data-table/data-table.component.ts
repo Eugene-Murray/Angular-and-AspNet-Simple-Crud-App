@@ -17,6 +17,7 @@ export class DataTableComponent {
 
   selectPerson(person: Person) {
     this.selectedPerson = person;
+    this.selectedPerson.isEdit = true;
     this.selectedPersonToEdit.emit(person);
   }
 
