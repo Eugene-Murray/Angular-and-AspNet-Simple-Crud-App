@@ -33,7 +33,7 @@
   text-align: center;
 }
 
-.body {
+.main-body {
   background-color: rgb(235,233,232);
   height: calc(100vh - 100px);
 }
