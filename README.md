@@ -1,6 +1,6 @@
 # UKParliament.CodeTest
 
-To run in VS.Net;
+# To run in VS.Net;
 ![image](https://github.com/user-attachments/assets/8710bc30-cddd-48d0-b00b-f3a8caf19c56)
 
 Load Persons and Departments;
@@ -22,15 +22,10 @@ Show success messages for delete, edit and create new;
 ![image](https://github.com/user-attachments/assets/9a28194c-7cb5-4f0b-9d7b-6828fbc912fb)
 
 # TODO:
-Use NGRX in the UI.
-Use Reactive Forms.
-Add UI unit tests.
-
 <ol>
-  <li>First item</li>
-  <li>Second item</li>
-  <li>Third item</li>
-  <li>Fourth item</li>
+  <li>Use NGRX in the UI.</li>
+  <li>Use Reactive Forms.</li>
+  <li>Add UI unit tests.</li>
 </ol>
 
 
