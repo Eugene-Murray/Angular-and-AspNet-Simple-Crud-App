@@ -7,18 +7,15 @@ namespace UKParliament.CodeTest.Data.ViewModels;
         public int Id { get; set; }
 
         [Required(ErrorMessage = "FirstName is required")]
-        public string FirstName { get; set; }
+        public required string FirstName { get; set; }
 
         [Required(ErrorMessage = "LastName is required")]
-
-        public string LastName { get; set; }
+        public required string LastName { get; set; }
 
         [Required(ErrorMessage = "DOB is required")]
-
-        public DateOnly DOB { get; set; }
+        public required DateOnly DOB { get; set; }
 
         [Required(ErrorMessage = "DepartmentId is required")]
-
-        public int DepartmentId { get; set; }
+        public required int DepartmentId { get; set; }
     }
 
