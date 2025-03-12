@@ -21,6 +21,10 @@ Show Error Messages (Debug only);
 Show success messages for delete, edit and create new;
 ![image](https://github.com/user-attachments/assets/9a28194c-7cb5-4f0b-9d7b-6828fbc912fb)
 
+Server Side Validation;
+![image](https://github.com/user-attachments/assets/7512fec7-1687-44c8-a8cd-0a9338873ffe)
+
+
 # TODO:
 <ol>
   <li>Use NGRX in the UI.</li>
