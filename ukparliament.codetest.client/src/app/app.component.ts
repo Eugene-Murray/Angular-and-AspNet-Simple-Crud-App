@@ -34,8 +34,7 @@ export class AppComponent implements OnInit {
       return p.map(person => {
         return {
           ...person,
-          departmentName: this.getDepartmentName(person.departmentId),
-          //dob: new Date(person.dob).toLocaleDateString()
+          departmentName: this.getDepartmentName(person.departmentId)
         }
       })
     })).subscribe(result => this.people = result);
@@ -47,7 +46,6 @@ export class AppComponent implements OnInit {
       (result) => {
         result.departmentName = this.getDepartmentName(result.departmentId);
         this.people.push(result);
-        console.warn('people add:', this.people);
         this.addEditPerson = { id: 0, firstName: '', lastName: '', dob: '', departmentId: 0 };
         this.successMessage = 'New User Added';
       },

@@ -15,7 +15,7 @@
     </div>
   </div>
     <div class="col-12">
-      <label for="dob" class="form-label">Date of Birth*: <span><b>{{ addEditPerson.dob }}</b></span></label>
+      <label for="dob" class="form-label">Date of Birth*:</label>
       <input type="date" class="form-control" id="dob" [(ngModel)]="addEditPerson.dob" name="dob" required>
       <div *ngIf="form.submitted && !form.controls['dob']?.valid">
         <span class="badge text-bg-danger">Date of Birth required</span>

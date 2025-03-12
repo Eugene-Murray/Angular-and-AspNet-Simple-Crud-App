@@ -15,7 +15,7 @@ public class Person
 
     //public DateTime DOB { get; set; }
     [Required]
-    public string DOB { get; set; }
+    public DateOnly DOB { get; set; }
 
     [Required]
     public int DepartmentId { get; set; }

@@ -37,6 +37,11 @@ namespace UKParliament.CodeTest.Server.Controllers
         {
             var person = _personService.Get(id);
 
+            if (person == null)
+            {
+                return NotFound();
+            }
+
             return Ok(new PersonViewModel() { 
                 Id = person.Id, 
                 FirstName = person.FirstName, 

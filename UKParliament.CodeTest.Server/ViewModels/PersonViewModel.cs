@@ -15,7 +15,7 @@ namespace UKParliament.CodeTest.Server.ViewModels;
 
         [Required(ErrorMessage = "DOB is required")]
 
-        public string DOB { get; set; }
+        public DateOnly DOB { get; set; }
 
         [Required(ErrorMessage = "DepartmentId is required")]
 
