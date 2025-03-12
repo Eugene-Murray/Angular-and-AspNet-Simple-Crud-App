@@ -13,14 +13,13 @@ export class DataEditorComponent {
   @Output() newPerson = new EventEmitter<Person>();
   @Output() updatePerson = new EventEmitter<Person>();
   @Output() clearPersonEditor = new EventEmitter<Person>();
-  selectedDepartmentId: number = 0;
-  selectedDate: string = '2000-2-4';
 
   
   onSelectionChange(event: Event) {
     const selectElement = event.target as HTMLSelectElement;
-    this.selectedDepartmentId = Number(selectElement.value);
-    console.log('Selected Person ID:', this.selectedDepartmentId);
+    const selectedDepartmentId = Number(selectElement.value);
+    this.addEditPerson.departmentId = selectedDepartmentId;
+    this.addEditPerson.departmentName = this.departments?.find(d => d.id === selectedDepartmentId)?.name || 'Unknown';
   }
 
   addPerson() {
