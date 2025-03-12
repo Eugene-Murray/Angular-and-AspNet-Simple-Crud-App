@@ -15,5 +15,25 @@ Validation for create / edit Person;
 Unit Tests;
 ![image](https://github.com/user-attachments/assets/19ecc451-0f84-4e68-99dd-d9924209caee)
 
+Show Error Messages (Debug only);
+![image](https://github.com/user-attachments/assets/55b74dbf-702a-49ee-9193-00f381a1a90a)
+
+Show success messages for delete, edit and create new;
+![image](https://github.com/user-attachments/assets/9a28194c-7cb5-4f0b-9d7b-6828fbc912fb)
+
+# TODO:
+Use NGRX in the UI.
+Use Reactive Forms.
+Add UI unit tests.
+
+<ol>
+  <li>First item</li>
+  <li>Second item</li>
+  <li>Third item</li>
+  <li>Fourth item</li>
+</ol>
+
+
+
 
 
