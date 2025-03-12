@@ -29,16 +29,18 @@ button {
     
 }
 
-.table {
+.data-table {
   border: 1px solid #808080;
   margin: 20px;
-  width: 100%;
+  padding: 10px;
+  width: 45vw;
 }
 
 .form-group {
   display: flex;
   flex-direction: column;
   margin: 20px;
+  width: 45vw;
 }
 
 .row-selected {
