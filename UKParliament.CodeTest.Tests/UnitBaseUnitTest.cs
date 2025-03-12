@@ -6,9 +6,9 @@ using System.Text;
 using System.Threading.Tasks;
 using UKParliament.CodeTest.Data;
 
-namespace UKParliament.CodeTest.Tests.Repos
+namespace UKParliament.CodeTest.Tests
 {
-    public class RepoBaseUnitTest
+    public class UnitBaseUnitTest
     {
         public DbContextOptions<PersonManagerContext> GetInMemoryDbContextOptions()
         {

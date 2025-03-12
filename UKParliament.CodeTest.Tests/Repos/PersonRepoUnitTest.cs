@@ -1,16 +1,12 @@
-using Microsoft.EntityFrameworkCore;
-using System;
 using UKParliament.CodeTest.Data;
 using UKParliament.CodeTest.Data.Entities;
 using UKParliament.CodeTest.Data.Repositories;
-using UKParliament.CodeTest.Services;
-using UKParliament.CodeTest.Services.Mappers;
-using UKParliament.CodeTest.Tests.Repos;
+
 
 namespace UKParliament.CodeTest.Tests.Services
 {
 
-    public class PersonRepoUnitTest : RepoBaseUnitTest
+    public class PersonRepoUnitTest : UnitBaseUnitTest
     {
         [Fact]
         public void Should_CreatePerson_Entity_List()
