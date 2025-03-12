@@ -52,6 +52,11 @@ namespace UKParliament.CodeTest.Server.Controllers
         {
             try
             {
+                if (!ModelState.IsValid)
+                {
+                    return BadRequest(ModelState);
+                }
+
                 var newPerson = _personService.Add(new Person() { 
                     FirstName = person.FirstName, 
                     LastName = person.LastName,
@@ -73,6 +78,11 @@ namespace UKParliament.CodeTest.Server.Controllers
         {
             try
             {
+                if (!ModelState.IsValid)
+                {
+                    return BadRequest(ModelState);
+                }
+
                 _personService.Edit(id, new Person() { 
                     FirstName = person.FirstName, 
                     LastName = person.LastName,

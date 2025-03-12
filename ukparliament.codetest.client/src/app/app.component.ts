@@ -13,27 +13,13 @@ import { map } from 'rxjs';
   styleUrl: './app.component.css'
 })
 export class AppComponent implements OnInit {
-
-  public people: Person[] = [];
-  public departments: Department[] = [];
-  public addEditPerson: Person = { id: 0, firstName: '', lastName: '', dob: '', departmentId: 0 };
-  addUserSuccess: boolean = false;
-  editUserSuccess: boolean = false;
+  people: Person[] = [];
+  departments: Department[] = [];
+  addEditPerson: Person = { id: 0, firstName: '', lastName: '', dob: '', departmentId: 0 };
   successMessage = '';
   errorMessage = '';
   constructor(private http: HttpClient, private dataService: DataService) { }
 
-
-  // Property to bind the selected option
-  selectedDepartmentId: number = 0;
-  selectedDate: string = '2000-2-4';
-
-  // Method to handle the selection change
-  onSelectionChange(event: Event) {
-    const selectElement = event.target as HTMLSelectElement;
-    this.selectedDepartmentId = Number(selectElement.value);
-    console.log('Selected Person ID:', this.selectedDepartmentId);
-  }
 
   ngOnInit() {
     this.getDepartments()
@@ -53,7 +39,7 @@ export class AppComponent implements OnInit {
       return p.map(person => {
         return {
           ...person,
-          departmentName: this.departments?.find(d => d.id === person.departmentId)?.name || 'Unknown',
+          departmentName: this.getDepartmentName(person.departmentId),
           //dob: new Date(person.dob).toLocaleDateString()
         }
       })
@@ -61,12 +47,13 @@ export class AppComponent implements OnInit {
   }
 
   addPerson(newPerson: Person) {
+    this.clearMessages();
     this.dataService.createPerson(newPerson).subscribe(
       (result) => {
-        console.warn(result);
+        console.warn('fdsffdsfdsf:', result);
+        result.departmentName = this.getDepartmentName(result.departmentId);
         this.people.push(result);
         this.addEditPerson = { id: 0, firstName: '', lastName: '', dob: '', departmentId: 0 };
-        this.addUserSuccess = true;
         this.successMessage = 'New User Added';
       },
       (error) => {
@@ -78,11 +65,11 @@ export class AppComponent implements OnInit {
   }
 
   editPerson(updatePerson: Person) {
+    this.clearMessages();
     this.dataService.updatePerson(updatePerson).subscribe(
       (result) => {
         this.addEditPerson = { id: 0, firstName: '', lastName: '', dob: '', departmentId: 0 };
         //this.people.push(result);
-        this.editUserSuccess = true;
         this.successMessage = 'User Updated';
       },
       (error) => {
@@ -94,12 +81,12 @@ export class AppComponent implements OnInit {
   }
 
   onDelete(id: number) {
+    this.clearMessages();
     this.dataService.deletePerson(id).subscribe(
       (result) => {
         const index = this.people.findIndex((p) => p.id === id);
         this.people.splice(index, 1);
         this.addEditPerson = { id: 0, firstName: '', lastName: '', dob: '', departmentId: 0 };
-        this.editUserSuccess = true;
         this.successMessage = 'User Deleted';
       },
       (error) => {
@@ -112,9 +99,20 @@ export class AppComponent implements OnInit {
 
   selectPerson(person: Person) {
     this.addEditPerson = person;
+    this.clearMessages();
   }
 
   clearPerson(emptyPerson: Person) {
     this.addEditPerson = emptyPerson;
+    this.clearMessages();
+  }
+
+  clearMessages() {
+    this.successMessage = '';
+    this.errorMessage = '';
+  }
+
+  getDepartmentName(departmentId: number) {
+    return this.departments?.find(d => d.id === departmentId)?.name;
   }
 }
