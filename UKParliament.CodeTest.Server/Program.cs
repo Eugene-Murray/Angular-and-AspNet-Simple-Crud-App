@@ -24,6 +24,7 @@ namespace UKParliament.CodeTest.Server
             builder.Services.AddScoped<IPersonMapper, PersonMapper>();
             builder.Services.AddScoped<IPersonService, PersonService>();
             builder.Services.AddScoped<IDepartmentRepository, DepartmentRepository>();
+            builder.Services.AddScoped<IDepartmentMapper, DepartmentMapper>();
             builder.Services.AddScoped<IDepartmentService, DepartmentService>();
 
             // Add CORS policy

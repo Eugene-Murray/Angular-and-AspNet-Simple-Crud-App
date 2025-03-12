@@ -24,11 +24,7 @@ namespace UKParliament.CodeTest.Server.Controllers
             {
                 var departments = _departmentService.Get();
 
-                return departments.Select(p => new DepartmentViewModel()
-                {
-                    Id = p.Id,
-                    Name = p.Name,
-                }).ToList();
+                return Ok(departments);
 
             }
             catch (Exception ex)

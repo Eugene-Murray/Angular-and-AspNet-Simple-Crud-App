@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 using UKParliament.CodeTest.Data.Entities;
 using UKParliament.CodeTest.Data.ViewModels;
 
-namespace UKParliament.CodeTest.Services
+namespace UKParliament.CodeTest.Services.Mappers
 {
-    public interface IDepartmentService
+    public interface IDepartmentMapper
     {
-        List<DepartmentViewModel> Get();
+        List<DepartmentViewModel> Map(List<Department> department);
     }
 }
